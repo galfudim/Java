@@ -123,7 +123,7 @@ public class ThreeWayMergesort {
 
 	// Driver
 	public static void main(String args[]) {
-		// test case of values
+		// Test values
 		Integer[] data = new Integer[] {1, 4, 7, 2, 5, 8, 3, 6, 10, 9};
 		mergeSort3Way(data);
 
