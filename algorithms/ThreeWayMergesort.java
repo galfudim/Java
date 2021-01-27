@@ -1,8 +1,3 @@
-/**
- * Author: Gal Fudim
- * Date: March 2019
- */
-
 public class ThreeWayMergesort {
 	// 3-way merge sort process
 	public static void mergeSort3Way(Integer[] gArray) {
@@ -18,7 +13,7 @@ public class ThreeWayMergesort {
 			fArray[i] = gArray[i];
 
 		// Sorting
-		mergeSort3WayRec(fArray, 0, gArray.length, gArray);
+		mergeSort3WayRecursive(fArray, 0, gArray.length, gArray);
 
 		// Copy back elements of duplicate array to given array
 		for (int i = 0; i < fArray.length; i++)
@@ -30,7 +25,7 @@ public class ThreeWayMergesort {
 	 * rangeof indices [low, high). low is minimum index, high is maximum index
 	 * (exclusive)
 	 */
-	public static void mergeSort3WayRec(Integer[] gArray, int low, int high, Integer[] destArray) {
+	public static void mergeSort3WayRecursive(Integer[] gArray, int low, int high, Integer[] destArray) {
 		// If array size is 1 then do nothing
 		if (high - low < 2)
 			return;
@@ -40,9 +35,9 @@ public class ThreeWayMergesort {
 		int mid2 = low + 2 * ((high - low) / 3) + 1;
 
 		// Sorting 3 arrays recursively
-		mergeSort3WayRec(destArray, low, mid1, gArray);
-		mergeSort3WayRec(destArray, mid1, mid2, gArray);
-		mergeSort3WayRec(destArray, mid2, high, gArray);
+		mergeSort3WayRecursive(destArray, low, mid1, gArray);
+		mergeSort3WayRecursive(destArray, mid1, mid2, gArray);
+		mergeSort3WayRecursive(destArray, mid2, high, gArray);
 
 		// Merging the sorted arrays
 		merge(destArray, low, mid1, mid2, high, gArray);
@@ -121,9 +116,7 @@ public class ThreeWayMergesort {
 		System.out.println("Number of comparisons: " + count + "\n");
 	}
 
-	// Driver
 	public static void main(String args[]) {
-		// Test values
 		Integer[] data = new Integer[] {1, 4, 7, 2, 5, 8, 3, 6, 10, 9};
 		mergeSort3Way(data);
 
